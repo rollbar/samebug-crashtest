@@ -11,6 +11,7 @@ import org.scalatest.{BeforeAndAfterAll, FunSpec}
 class ErrorReportDaoTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
 
   it("stores a report list") {
+//    pending
     val user = userService.user(2)
     val report = ErrorReport(null, user, None)
     val reports = Seq(report)

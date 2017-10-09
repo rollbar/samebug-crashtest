@@ -23,9 +23,9 @@ class ErrorReportDao @Inject()(protected val mongodb: MongoDB, protected val map
     writeResult.getSavedObject
   }
 
-  def insert(reports: Seq[ErrorReport]): WriteResult[ErrorReport, String] =  {
+  def insert(reports: Seq[ErrorReport]): Seq[ErrorReport] =  {
     val writeResult: WriteResult[ErrorReport, String] = collection.insert(reports.asJava)
-    writeResult
+    writeResult.getSavedObjects.asScala
   }
 
   override protected def collectionName = "errors_reports"
