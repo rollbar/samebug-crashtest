@@ -1,6 +1,6 @@
 package com.samebug.database.mock
 
-import com.samebug.entities.{User, UserReference}
+import com.samebug.entities.UserReference
 import com.samebug.services.authentication.UserService
 
 class MockUserService extends UserService {

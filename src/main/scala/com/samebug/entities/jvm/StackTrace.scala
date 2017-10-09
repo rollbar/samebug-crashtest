@@ -164,7 +164,7 @@ object StackTrace {
 
     def locationIgnorantEquals(f1: Frame, f2: Frame): Boolean = f1.call == f2.call
 
-    private def generated(delimiter:String) = s"$delimiter((?:Enhancer|FastClass|KeyFactory)By(?:CGLIB|SpringCGLIB|Guice|MUNIT|MockitoWithCGLIB|Proxool|CloudStack|ModelMapper))$delimiter([a-f0-9]{1,8})"
+    private def generated(delimiter: String) = s"$delimiter((?:Enhancer|FastClass|KeyFactory)By(?:CGLIB|SpringCGLIB|Guice|MUNIT|MockitoWithCGLIB|Proxool|CloudStack|ModelMapper))$delimiter([a-f0-9]{1,8})"
 
     private val Proxy = "\\$Proxy(\\d+)".r
     private val GeneratedMethodAccessor = "GeneratedMethodAccessor(\\d+)".r

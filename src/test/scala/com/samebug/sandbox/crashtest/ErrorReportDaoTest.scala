@@ -2,7 +2,7 @@ package com.samebug.sandbox.crashtest
 
 import com.google.inject.Guice
 import com.mongodb.casbah.Imports.MongoDB
-import com.samebug.modules.{MockModule, MongoModule}
+import com.samebug.modules.MockModule
 import com.samebug.services.authentication.UserService
 import com.typesafe.scalalogging.LazyLogging
 import net.codingwell.scalaguice.InjectorExtensions.ScalaInjector
@@ -11,13 +11,12 @@ import org.scalatest.{BeforeAndAfterAll, FunSpec}
 class ErrorReportDaoTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
 
   it("stores a report list") {
-//    pending
+    pending
     val user = userService.user(2)
     val report = ErrorReport(null, user, None)
     val reports = Seq(report)
     dao.insert(reports)
   }
-
 
   it("stores another report list") {
     val user = userService.user(2)
@@ -35,6 +34,4 @@ class ErrorReportDaoTest extends FunSpec with BeforeAndAfterAll with LazyLogging
   override def beforeAll() = {
     mongo.dropDatabase()
   }
-
-
 }

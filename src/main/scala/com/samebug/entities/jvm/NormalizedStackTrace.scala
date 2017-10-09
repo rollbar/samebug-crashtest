@@ -89,7 +89,7 @@ object NormalizedStackTrace {
 
   class FramesDeserializer extends JsonDeserializer[Seq[StackTrace.Frame]] {
     def deserialize(p: JsonParser, ctxt: DeserializationContext): Seq[StackTrace.Frame] = {
-      p.getValueAsString.split("\n").filter{_.nonEmpty}.par.map(deserializeFrame).seq
+      p.getValueAsString.split("\n").filter {_.nonEmpty}.par.map(deserializeFrame).seq
     }
   }
 

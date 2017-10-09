@@ -8,7 +8,6 @@ trait User {
   def defaultWorkspaceId: Long
 }
 
-
 case class UserReference(
   id: Long,
   slug: String,

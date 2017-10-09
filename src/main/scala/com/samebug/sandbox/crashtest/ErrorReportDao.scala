@@ -15,22 +15,20 @@ import org.mongojack.internal.{ObjectIdDeserializers, ObjectIdSerializer}
 import scala.collection.JavaConverters._
 
 
-
 class ErrorReportDao @Inject()(protected val mongodb: MongoDB, protected val mapper: ObjectMapper) extends MongoCollection[ErrorReport, String] {
 
-  def insert(report: ErrorReport): ErrorReport =  {
+  def insert(report: ErrorReport): ErrorReport = {
     val writeResult = collection.insert(report copy (id = null))
     writeResult.getSavedObject
   }
 
-  def insert(reports: Seq[ErrorReport]): Seq[ErrorReport] =  {
+  def insert(reports: Seq[ErrorReport]): Seq[ErrorReport] = {
     val writeResult: WriteResult[ErrorReport, String] = collection.insert(reports.asJava)
     writeResult.getSavedObjects.asScala
   }
 
   override protected def collectionName = "errors_reports"
 }
-
 
 case class ErrorReport(
   @JsonSerialize(using = classOf[ObjectIdSerializer])
