@@ -7,28 +7,29 @@ import com.samebug.services.authentication.UserService
 import com.typesafe.scalalogging.LazyLogging
 import net.codingwell.scalaguice.InjectorExtensions.ScalaInjector
 import org.scalatest.{BeforeAndAfterAll, FunSpec}
+import scala.collection.JavaConverters._
 
-class ErrorReportDaoTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
+class ErrorReportDaoJavaTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
 
   it("stores a report list") {
     pending
     val user = userService.user(2)
     val report = ErrorReport(null, user, None)
-    val reports = Seq(report)
+    val reports = Seq[ErrorReport](report).asJava
     dao.insert(reports)
   }
 
   it("stores another report list") {
     val user = userService.user(2)
     val report = ErrorReport(null, user, None)
-    val reports = Seq()
+    val reports = Seq[ErrorReport]().asJava
     dao.insert(reports)
   }
 
   private val module = new MockModule()
   private val injector = new ScalaInjector(Guice.createInjector(module))
   private val mongo = injector.instance[MongoDB]
-  private val dao = injector.instance[ErrorReportDao]
+  private val dao = injector.instance[ErrorReportDaoJava]
   private val userService = injector.instance[UserService]
 
   override def beforeAll() = {
