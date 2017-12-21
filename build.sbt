@@ -13,5 +13,6 @@ libraryDependencies ++= Seq(
   "org.mongodb" %% "casbah" % "3.1.1",
   "org.mongodb" % "bson" % "3.1.1",
   "org.mongojack" % "mongojack" % "2.6.1",
-  "org.scalatest" %% "scalatest" % "3.0.1" % "test"
+  "org.scalatest" %% "scalatest" % "3.0.1" % "test",
+  "com.bugsnag" % "bugsnag" % "3.0.0"
 )
