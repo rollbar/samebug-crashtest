@@ -11,7 +11,6 @@ class CrashReportTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
   it("simply crashes") {
     try {
       Sentry.getContext.recordBreadcrumb(new BreadcrumbBuilder().setMessage("User made an action").build)
-      Sentry.capture("This is a test")
       crasher.chainedException(List(3))
     } catch {
       case NonFatal(x) => Sentry.capture(x)
@@ -24,6 +23,11 @@ class CrashReportTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
     } catch {
       case NonFatal(x) => Sentry.capture(x)
     }
+  }
+
+  override def afterAll() = {
+    Thread.sleep(2000L)
+    Sentry.close()
   }
 
   private val crasher = new CrashReport

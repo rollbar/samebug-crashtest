@@ -23,11 +23,20 @@ class CrashReport {
         } catch {
           case NonFatal(x) => throw TestException(s"Bang at depth ${nFrames.size - 1}", x)
         }
-      case i :: s => chainedException((i - 1) :: s)
+      case i :: s => a(i :: s)
       case _ => throw new IllegalStateException
     }
     // make sure it is not tail recursive
     Unit
+  }
+
+  def a(nFrames: List[Int]): Unit = {
+    b(nFrames)
+  }
+
+  def b(nFrames: List[Int]): Unit = nFrames match {
+    case 1 :: s => chainedException(1 :: s)
+    case i :: s => a(i - 1 :: s)
   }
 }
 
