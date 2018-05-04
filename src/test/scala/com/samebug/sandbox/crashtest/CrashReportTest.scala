@@ -10,7 +10,7 @@ class CrashReportTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
     try {
       crasher.chainedException(List(3))
     } catch {
-      case NonFatal(x) => throw x
+      case NonFatal(x) => logger.error("other nasty failure", x)
     }
   }
 

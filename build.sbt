@@ -13,5 +13,8 @@ libraryDependencies ++= Seq(
   "org.mongodb" %% "casbah" % "3.1.1",
   "org.mongodb" % "bson" % "3.1.1",
   "org.mongojack" % "mongojack" % "2.6.1",
+
+  "com.stackify" % "stackify-log-logback" % "2.0.2",
+
   "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )
