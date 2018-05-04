@@ -1,0 +1,17 @@
+<configuration>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%logger{15} - %message%n%xException{10}</pattern>
+        </encoder>
+    </appender>
+    <appender name="STACKIFY" class="com.stackify.log.logback.StackifyLogAppender">
+        <apiKey>7Uj7Zs4Ut3Zk7Wn0Le5Ds0Ip6Zp6Yz8Ut0Xt8Bu</apiKey>
+        <application>myapp</application>
+        <environment>myenv</environment>
+    </appender>
+
+    <root level="error">
+        <appender-ref ref="STACKIFY"/>
+        <appender-ref ref="console"/>
+    </root>
+</configuration>

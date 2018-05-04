@@ -15,6 +15,6 @@ class MysqlCrasherTest extends FunSpec with BeforeAndAfterAll {
   private val injector = new ScalaInjector(Guice.createInjector(module))
   private val sut = injector.instance[MysqlCrasher]
 
-  override def beforeAll() = {
+  override def afterAll() = {
   }
 }

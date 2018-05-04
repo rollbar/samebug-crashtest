@@ -6,15 +6,15 @@ import org.scalatest.{BeforeAndAfterAll, FunSpec}
 import scala.util.control.NonFatal
 
 class CrasherTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
-  it("simply crashes") {
+  ignore("simply crashes") {
     try {
       sut.chainedException(List(3))
     } catch {
-      case NonFatal(x) => throw x
+      case NonFatal(x) => logger.error("other nasty failure", x)
     }
   }
 
-  it("crashes with a cause chain") {
+  ignore("crashes with a cause chain") {
     try {
       sut.chainedException(List(3,5,7))
     } catch {

@@ -16,5 +16,8 @@ libraryDependencies ++= Seq(
   "com.typesafe.slick" %% "slick" % "3.2.0",
   "com.typesafe.slick" %% "slick-hikaricp" % "3.2.0",
   "org.mariadb.jdbc" % "mariadb-java-client" % "1.5.9",
+
+  "com.stackify" % "stackify-log-logback" % "2.0.2",
+
   "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )

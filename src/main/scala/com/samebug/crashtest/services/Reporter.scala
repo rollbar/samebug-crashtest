@@ -1,7 +1,9 @@
 package com.samebug.crashtest.services
 
-trait Reporter {
+import com.typesafe.scalalogging.LazyLogging
+
+trait Reporter extends LazyLogging {
   def report(x: Throwable) = {
-    x.printStackTrace()
+    logger.error("", x)
   }
 }
