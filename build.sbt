@@ -12,6 +12,9 @@ libraryDependencies ++= Seq(
   "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.8.7",
   "org.mongodb" %% "casbah" % "3.1.1",
   "org.mongodb" % "bson" % "3.1.1",
-  "org.mongojack" % "mongojack" % "2.6.1",
+  "org.mongojack" % "mongojack" % "2.7.0",
+  "com.typesafe.slick" %% "slick" % "3.2.0",
+  "com.typesafe.slick" %% "slick-hikaricp" % "3.2.0",
+  "org.mariadb.jdbc" % "mariadb-java-client" % "1.5.9",
   "org.scalatest" %% "scalatest" % "3.0.1" % "test"
 )

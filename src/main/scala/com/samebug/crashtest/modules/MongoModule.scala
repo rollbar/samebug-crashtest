@@ -1,4 +1,4 @@
-package com.samebug.modules
+package com.samebug.crashtest.modules
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include
 import com.fasterxml.jackson.databind.{DeserializationFeature, ObjectMapper, SerializationFeature}
@@ -9,7 +9,7 @@ import com.mongodb.casbah.Imports.{MongoClient, MongoDB}
 import com.typesafe.scalalogging.LazyLogging
 import net.codingwell.scalaguice.ScalaModule
 
-class MongoModule() extends AbstractModule with ScalaModule with LazyLogging {
+class MongoModule(config: MongoModuleConfig) extends AbstractModule with ScalaModule with LazyLogging {
 
   override def configure(): Unit = {
     bind[MongoDB].toInstance(database)
@@ -17,7 +17,7 @@ class MongoModule() extends AbstractModule with ScalaModule with LazyLogging {
     bind[ObjectMapper].toInstance(mapper)
   }
 
-  private lazy val client = MongoClient("localhost", 27017)
+  private lazy val client = MongoClient(config.host, config.port)
   private lazy val database = client.getDB("test")
   private lazy val mapper = {
     val mapper = new ObjectMapper() with ScalaObjectMapper
@@ -28,3 +28,8 @@ class MongoModule() extends AbstractModule with ScalaModule with LazyLogging {
     mapper
   }
 }
+
+case class MongoModuleConfig(
+  host: String,
+  port: Int
+)
