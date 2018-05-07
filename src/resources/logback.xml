@@ -1,0 +1,11 @@
+<configuration>
+    <appender name="STACKIFY" class="com.stackify.log.logback.StackifyLogAppender">
+        <apiKey>7Uj7Zs4Ut3Zk7Wn0Le5Ds0Ip6Zp6Yz8Ut0Xt8Bu</apiKey>
+        <application>myapp</application>
+        <environment>myenv</environment>
+    </appender>
+
+    <root>
+        <appender-ref ref="STACKIFY"/>
+    </root>
+</configuration>
