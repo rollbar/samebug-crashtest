@@ -14,5 +14,5 @@ libraryDependencies ++= Seq(
   "org.mongodb" % "bson" % "3.1.1",
   "org.mongojack" % "mongojack" % "2.6.1",
   "org.scalatest" %% "scalatest" % "3.0.1" % "test",
-  "io.sentry" % "sentry" % "1.6.3"
+  "io.sentry" % "sentry" % "1.7.5"
 )

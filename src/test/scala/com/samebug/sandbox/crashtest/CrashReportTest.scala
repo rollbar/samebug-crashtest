@@ -27,5 +27,5 @@ class CrashReportTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
   }
 
   private val crasher = new CrashReport
-  Sentry.init("https://1211268ba00f4d88bf6be37f4d0d1fbc:b9a94423a3054600b4e8599e44b5ebcb@sentry.io/259617")
+  Sentry.init("https://e2c242ae5fa34ce18bd330d70d0dfb51:e2700e514305434c9a0fa49a78222c22@sentry.io/1241256")
 }
