@@ -2,7 +2,10 @@ name := "samebug-crashtest"
 
 version := "0.1"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.11.3"
+
+credentials += SamebugRepository.credentials
+resolvers += SamebugRepository.public
 
 libraryDependencies ++= Seq(
   "com.typesafe.scala-logging" %% "scala-logging" % "3.5.0",
@@ -14,5 +17,7 @@ libraryDependencies ++= Seq(
   "org.mongodb" % "bson" % "3.1.1",
   "org.mongojack" % "mongojack" % "2.6.1",
   "org.scalatest" %% "scalatest" % "3.0.1" % "test",
-  "com.mindscapehq" % "core" % "2.0.0"
+  "com.mindscapehq" % "core" % "2.0.0",
+
+  "com.samebug" %% "rollbar-api" % "1.0.1"
 )

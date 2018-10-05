@@ -23,6 +23,6 @@ class CrashReportTest extends FunSpec with BeforeAndAfterAll with LazyLogging {
     }
   }
 
-  val client = new RaygunClient("CF7+TV/W2Qstz0VYEIOq9g==")
+  val client = new RaygunClient("dCGTXotsu6PuCOmeZfNiOg==")
   private val crasher = new CrashReport
 }
